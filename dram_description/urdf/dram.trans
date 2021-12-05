@@ -1,0 +1,48 @@
+<?xml version="1.0" ?>
+<robot name="dram" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="joint_r_f_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_r_f">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_r_f_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_r_b_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_r_b">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_r_b_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_l_f_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_l_f">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_l_f_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="joint_l_b_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="joint_l_b">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="joint_l_b_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

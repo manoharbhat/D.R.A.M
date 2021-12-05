@@ -1,0 +1,41 @@
+encoders:
+
+l_f:
+C2:A0
+C1:A1
+
+l_b:
+C2:A2
+C1:A3
+
+r_f:
+C2:A4
+C1:A5
+
+r_b:
+C2:A6
+C1:A7
+
+Motors:
+
+l_f:
+En: 2
+Mf:22
+Mb:23
+
+l_b:
+En: 3
+Mf:26
+Mb:27
+
+r_f:
+En: 4
+Mf:30
+Mb:31
+
+r_b:
+En: 5
+Mf:34
+Mb:35
+
+Common ground to arduino breadboard and motor drivers

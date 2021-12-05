@@ -1,0 +1,788 @@
+<?xml version="1.0" ?>
+<robot name="dram" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find dram_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find dram_description)/urdf/dram.trans" />
+<xacro:include filename="$(find dram_description)/urdf/dram.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0005255342566930066 0.014422046327159406 0.06873830674162516"/>
+    <mass value="0.5071217162218074"/>
+    <inertia ixx="0.003228" ixy="4e-06" ixz="1.1e-05" iyy="0.006441" iyz="-0.0" izz="0.009542"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_glossy_blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_f_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406433390927e-07 -0.008999879535321206 -3.3443668235461077e-07"/>
+    <mass value="0.02509766864701655"/>
+    <inertia ixx="1.4e-05" ixy="0.0" ixz="0.0" iyy="2.2e-05" iyz="-0.0" izz="1.4e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.102709 0.100524 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_r_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.102709 0.100524 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_r_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_r_b_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406583271035e-07 -0.010999879535319362 -3.344366823337941e-07"/>
+    <mass value="0.02509766864701655"/>
+    <inertia ixx="1.4e-05" ixy="0.0" ixz="0.0" iyy="2.2e-05" iyz="-0.0" izz="1.4e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.097291 0.100524 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_r_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.097291 0.100524 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_r_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_f_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.915340622383633e-07 0.009000120464634581 -3.3443668236848856e-07"/>
+    <mass value="0.02509766864701655"/>
+    <inertia ixx="1.4e-05" ixy="0.0" ixz="0.0" iyy="2.2e-05" iyz="-0.0" izz="1.4e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.102709 -0.129476 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_l_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.102709 -0.129476 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_l_f_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="wheel_l_b_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406355675315e-07 0.011000120464636387 -3.3443668240318303e-07"/>
+    <mass value="0.02509766864701655"/>
+    <inertia ixx="1.4e-05" ixy="0.0" ixz="0.0" iyy="2.2e-05" iyz="-0.0" izz="1.4e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.097291 -0.129476 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_l_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.097291 -0.129476 -0.043954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/wheel_l_b_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="battery_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.07999970846596921 -0.00013701038918163995 0.021499665563317547"/>
+    <mass value="0.3010301934649016"/>
+    <inertia ixx="0.000513" ixy="0.0" ixz="0.0" iyy="0.000112" iyz="-0.0" izz="0.000534"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.197291 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.197291 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/battery_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-3.1517886570076037e-07 1.2046465611148527e-07 0.024999665563317647"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.166187 0.093039 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.166187 0.093039 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-3.151788638411368e-07 1.2046467831594576e-07 0.02499966556331762"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="-0.0" iyy="2e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.166187 -0.121991 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.166187 -0.121991 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff3_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406118365144e-07 1.204646568747636e-07 0.02499966556331762"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.072709 -0.094476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.072709 -0.094476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff4_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.915340625020413e-07 1.2046465680537466e-07 0.024999665563317633"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="-0.0" iyy="2e-06" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.072709 0.065524 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.072709 0.065524 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff5_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406338197976e-07 1.204646574437529e-07 0.024999665563317633"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="-0.0" ixz="0.0" iyy="2e-06" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.002709 0.065524 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.002709 0.065524 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff5_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff6_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406196557805e-07 1.2046465747150847e-07 0.02499966556331762"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="-0.0" ixz="0.0" iyy="2e-06" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.002709 -0.094476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.002709 -0.094476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff6_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff8_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.91534031193752e-07 1.2046468017556933e-07 0.02499966556331762"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="-0.0" iyy="2e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.067291 -0.094476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.067291 -0.094476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff8_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff9_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406286286376e-07 1.2046468116089226e-07 0.02499966556331762"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.172291 -0.121991 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.172291 -0.121991 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff9_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff10_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406444493157e-07 1.2046465884540947e-07 0.024999665563317647"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.172291 0.093039 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.172291 0.093039 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff10_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="motor_driver_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0013632043997005875 -0.0003812022536778016 0.006664431322803532"/>
+    <mass value="0.07417911497543102"/>
+    <inertia ixx="1.2e-05" ixy="0.0" ixz="2e-06" iyy="1.5e-05" iyz="0.0" izz="2.1e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.002709 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/motor_driver_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.002709 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/motor_driver_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="buck_converter_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.024668867300243424 0.0011147691929864357 0.004130447632379394"/>
+    <mass value="0.07588065291854336"/>
+    <inertia ixx="1.9e-05" ixy="1e-06" ixz="0.0" iyy="9e-06" iyz="-0.0" izz="2.7e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.197291 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/buck_converter_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.197291 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/buck_converter_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="arduino_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.003782904620678832 -0.025133500027817918 0.004429026989252835"/>
+    <mass value="0.058633680724295284"/>
+    <inertia ixx="1.7e-05" ixy="3e-06" ixz="-1e-06" iyy="2.9e-05" iyz="0.0" izz="4.5e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.002709 0.007674 -0.077779"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/arduino_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.002709 0.007674 -0.077779"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/arduino_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="Jetson_nano_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.06824843031124456 -0.0040622600514725275 0.00521006177651509"/>
+    <mass value="0.26491423167294764"/>
+    <inertia ixx="0.000189" ixy="9e-06" ixz="7e-06" iyy="0.000145" iyz="-3e-06" izz="0.000322"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.202709 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/Jetson_nano_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.202709 -0.014476 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/Jetson_nano_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff5_2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-2.9153406391757564e-07 1.2046465808213114e-07 0.02499966556331759"/>
+    <mass value="0.008497874274634798"/>
+    <inertia ixx="2e-06" ixy="0.0" ixz="0.0" iyy="2e-06" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.067291 0.065524 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff5_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.067291 0.065524 -0.076954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff5_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="middle_plate_v14_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.16823876924891365 -0.10751512326470052 0.0014996655633172928"/>
+    <mass value="0.4120469267736864"/>
+    <inertia ixx="0.003064" ixy="0.0" ixz="-0.0" iyy="0.005346" iyz="-0.0" izz="0.00841"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.166187 -0.121991 -0.126954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/middle_plate_v14_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="plastic_glossy_blue"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.166187 -0.121991 -0.126954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/middle_plate_v14_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff14_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.79062527901424e-07 1.2046467965515228e-07 0.03499966556331746"/>
+    <mass value="0.011897023984488721"/>
+    <inertia ixx="5e-06" ixy="0.0" ixz="0.0" iyy="5e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.000969 -0.059476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.000969 -0.059476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff14_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff14_2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7906252800247167e-07 1.2046467866289046e-07 0.03499966556331746"/>
+    <mass value="0.011897023984488721"/>
+    <inertia ixx="5e-06" ixy="-0.0" ixz="-0.0" iyy="5e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.118969 -0.059476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff14_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.118969 -0.059476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff14_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff13_2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7906252722531555e-07 1.204646786212571e-07 0.034999665563317184"/>
+    <mass value="0.011897023984488721"/>
+    <inertia ixx="5e-06" ixy="-0.0" ixz="-0.0" iyy="5e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.118969 0.028524 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff13_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.118969 0.028524 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff13_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="standoff13_3">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7906252715137296e-07 1.204646796482134e-07 0.034999665563317184"/>
+    <mass value="0.011897023984488721"/>
+    <inertia ixx="5e-06" ixy="0.0" ixz="0.0" iyy="5e-06" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.000969 0.028524 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff13_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.000969 0.028524 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/standoff13_3.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="top_plate_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.058999720937471925 -0.04399987953532068 0.004999665563317324"/>
+    <mass value="0.8788644647902379"/>
+    <inertia ixx="0.000624" ixy="0.0" ixz="0.0" iyy="0.001092" iyz="-0.0" izz="0.001702"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.118969 -0.059476 -0.199954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/top_plate_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.118969 -0.059476 -0.199954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/top_plate_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="lidar_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.01294243886699132 0.0001763536730300698 0.015035435907443884"/>
+    <mass value="0.14099641475023567"/>
+    <inertia ixx="6e-05" ixy="-0.0" ixz="-3e-06" iyy="7.3e-05" iyz="-0.0" izz="0.000105"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.059969 -0.015476 -0.209954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.059969 -0.015476 -0.209954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/lidar_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="camera_link_v1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.0024997209374411355 1.2046470011448096e-07 0.01249966556331733"/>
+    <mass value="0.00265"/>
+    <inertia ixx="0.0" ixy="-0.0" ixz="-0.0" iyy="0.0" iyz="0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.201969 -0.014476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/camera_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.201969 -0.014476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/camera_link_v1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="imu_link_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="2.7906255886884015e-07 1.2046470181450997e-07 0.0024996655633173492"/>
+    <mass value="0.00265"/>
+    <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="-0.0" izz="0.0"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.001969 -0.014476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver_default"/>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.001969 -0.014476 -0.129954"/>
+    <geometry>
+      <mesh filename="package://dram_description/meshes/imu_link_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="joint_r_f" type="continuous">
+  <origin rpy="0 0 0" xyz="0.102709 -0.100524 0.043954"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_f_1"/>
+  <axis xyz="-0.0 -1.0 0.0"/>
+</joint>
+
+<joint name="joint_r_b" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.097291 -0.100524 0.043954"/>
+  <parent link="base_link"/>
+  <child link="wheel_r_b_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="joint_l_f" type="continuous">
+  <origin rpy="0 0 0" xyz="0.102709 0.129476 0.043954"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_f_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="joint_l_b" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.097291 0.129476 0.043954"/>
+  <parent link="base_link"/>
+  <child link="wheel_l_b_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+</joint>
+
+<joint name="battery_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.197291 0.014476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="battery_1"/>
+</joint>
+
+<joint name="Rigid35" type="fixed">
+  <origin rpy="0 0 0" xyz="0.166187 -0.093039 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff1_1"/>
+</joint>
+
+<joint name="Rigid36" type="fixed">
+  <origin rpy="0 0 0" xyz="0.166187 0.121991 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff2_1"/>
+</joint>
+
+<joint name="Rigid37" type="fixed">
+  <origin rpy="0 0 0" xyz="0.072709 0.094476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff3_1"/>
+</joint>
+
+<joint name="Rigid38" type="fixed">
+  <origin rpy="0 0 0" xyz="0.072709 -0.065524 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff4_1"/>
+</joint>
+
+<joint name="Rigid39" type="fixed">
+  <origin rpy="0 0 0" xyz="0.002709 -0.065524 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff5_1"/>
+</joint>
+
+<joint name="Rigid40" type="fixed">
+  <origin rpy="0 0 0" xyz="0.002709 0.094476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff6_1"/>
+</joint>
+
+<joint name="Rigid42" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.067291 0.094476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff8_1"/>
+</joint>
+
+<joint name="Rigid43" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.172291 0.121991 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff9_1"/>
+</joint>
+
+<joint name="Rigid44" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.172291 -0.093039 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff10_1"/>
+</joint>
+
+<joint name="motor_driver_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="0.002709 0.014476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="motor_driver_1"/>
+</joint>
+
+<joint name="buack_converter_joint" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.197291 0.014476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="buck_converter_1"/>
+</joint>
+
+<joint name="Rigid65" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 -0.02215 0.000825"/>
+  <parent link="motor_driver_1"/>
+  <child link="arduino_1"/>
+</joint>
+
+<joint name="Rigid66" type="fixed">
+  <origin rpy="0 0 0" xyz="0.202709 0.014476 0.076954"/>
+  <parent link="base_link"/>
+  <child link="Jetson_nano_1"/>
+</joint>
+
+<joint name="Rigid81" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.067291 -0.065524 0.076954"/>
+  <parent link="base_link"/>
+  <child link="standoff5_2"/>
+</joint>
+
+<joint name="Rigid83" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.05"/>
+  <parent link="standoff2_1"/>
+  <child link="middle_plate_v14_v1_1"/>
+</joint>
+
+<joint name="Rigid84" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.165218 -0.062515 0.003"/>
+  <parent link="middle_plate_v14_v1_1"/>
+  <child link="standoff14_1"/>
+</joint>
+
+<joint name="Rigid85" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.047218 -0.062515 0.003"/>
+  <parent link="middle_plate_v14_v1_1"/>
+  <child link="standoff14_2"/>
+</joint>
+
+<joint name="Rigid86" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.047218 -0.150515 0.003"/>
+  <parent link="middle_plate_v14_v1_1"/>
+  <child link="standoff13_2"/>
+</joint>
+
+<joint name="Rigid87" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.165218 -0.150515 0.003"/>
+  <parent link="middle_plate_v14_v1_1"/>
+  <child link="standoff13_3"/>
+</joint>
+
+<joint name="Rigid89" type="fixed">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.07"/>
+  <parent link="standoff14_2"/>
+  <child link="top_plate_v1_1"/>
+</joint>
+
+<joint name="Rigid90" type="fixed">
+  <origin rpy="0 0 3.14" xyz="-0.059 -0.044 0.01"/>
+  <parent link="top_plate_v1_1"/>
+  <child link="lidar_link_1"/>
+</joint>
+
+<joint name="Rigid91" type="fixed">
+  <origin rpy="0 0 0" xyz="0.035782 -0.107515 0.003"/>
+  <parent link="middle_plate_v14_v1_1"/>
+  <child link="camera_link_v1_1"/>
+</joint>
+
+<joint name="Rigid92" type="fixed">
+  <origin rpy="0 0 0" xyz="-0.164218 -0.107515 0.003"/>
+  <parent link="middle_plate_v14_v1_1"/>
+  <child link="imu_link_1"/>
+</joint>
+
+</robot>

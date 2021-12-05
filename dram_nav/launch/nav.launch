@@ -1,0 +1,44 @@
+<launch>
+
+ 
+
+
+    <!-- including launch file for localization using AMCL -->
+    <include file="$(find dram_nav)/launch/amcl_demo.launch" />
+
+   
+
+    <arg name="map_file" default="$(find dram_nav)/maps/_world.yaml"/>
+
+   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+   
+
+ 
+
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+
+    <param name="base_global_planner" value="navfn/NavfnROS"/>
+
+    <param name="planner" value="planner/TebLocalPlannerROS"/>
+
+    <rosparam file="$(find dram_nav)/config/base_global_planner.yaml" command="load"/>
+
+    <rosparam file="$(find dram_nav)/config/planner.yaml" command="load"/>
+
+    <!-- observation sources located in costmap_common.yaml -->
+    <rosparam file="$(find dram_nav)/config/costmap_common.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find dram_nav)/config/costmap_common.yaml" command="load" ns="local_costmap" />
+
+    <!-- local costmap, needs size -->
+    <rosparam file="$(find dram_nav)/config/local_costmap.yaml" command="load" ns="local_costmap" />
+    <param name="local_costmap/width" value="1.0"/>
+    <param name="local_costmap/height" value="1.0"/>
+
+    <!-- static global costmap, static map provides size -->
+    <rosparam file="$(find dram_nav)/config/global_costmap.yaml" command="load" ns="global_costmap"/>
+    
+  </node>
+
+</launch>
+
+
